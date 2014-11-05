@@ -9,18 +9,16 @@ class Input:
         super().__init__()
         try:
             inputFile = open(fileName, 'r')
-            self.grid = list()
+            self.grid = []
             for line in inputFile:
-                print(line)
-                self.grid.append(list(line).remove("\n"))
+                self.grid += list(line).remove("\n")
             inputFile.close()
             print(self.grid)
-        except:
-            print("Error in file parsing")
-
-
+        except FileNotFoundError as e:
+            print("Cannot find " + fileName)
 
     def getNaoLocation(self):
         for line in self.grid:
             if "N" in line:
-                return ()
+                return (line.index("N"), self.grid.index(line))
+        return None

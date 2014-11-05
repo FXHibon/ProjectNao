@@ -2,5 +2,6 @@ from Input import Input
 
 __author__ = 'fx'
 
-data = Input("data.dast")
+data = Input("data.dat")
+#print(data.getNaoLocation())
 
