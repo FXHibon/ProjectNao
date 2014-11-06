@@ -10,15 +10,29 @@ class Input:
         try:
             inputFile = open(fileName, 'r')
             self.grid = []
-            for line in inputFile:
-                self.grid += list(line).remove("\n")
+            line = inputFile.readline()
+
+            while line != "":
+                tmp = list(line)[0:-1]
+                print(len(tmp))
+                if len(tmp) > 0:
+                    self.grid.append(tmp)
+                line = inputFile.readline()
+
             inputFile.close()
-            print(self.grid)
         except FileNotFoundError as e:
             print("Cannot find " + fileName)
 
     def getNaoLocation(self):
-        for line in self.grid:
-            if "N" in line:
-                return (line.index("N"), self.grid.index(line))
+        for iLine in range(len(self.grid)):
+            for iCol in range(len(self.grid[iLine])):
+                if self.grid[iLine][iCol] == "N":
+                    return (iLine, iCol)
         return None
+
+    def getData(self):
+        for line in self.grid:
+            print(line)
+
+    def getSize(self):
+        return (len(self.grid), len(self.grid[0]))
