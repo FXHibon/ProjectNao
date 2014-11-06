@@ -1,7 +1,6 @@
-from Input import Input
+from Grid import Grid
 
 __author__ = 'fx'
 
-data = Input("data.dat")
-print(data.getData())
-
+data = Grid("data.dat")
+print(data.getNaoLocation())
