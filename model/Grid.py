@@ -1,8 +1,12 @@
+from model.Case import Case
+
 __author__ = 'fx'
 
 
-class Input:
-    "Represents input data for Nao, parsed from an input file"
+class Grid:
+    """
+    Represents input data for Nao, parsed from an input file
+    """
 
     # Constructor
     def __init__(self, fileName):
@@ -12,25 +16,27 @@ class Input:
             self.grid = []
             line = inputFile.readline()
 
+            y = 0
             while line != "":
-                tmp = list(line)[0:-1]
-                print(len(tmp))
-                if len(tmp) > 0:
-                    self.grid.append(tmp)
+                tmp = []
+                for char in line:
+                    if char != "\n":
+                        tmp.append(Case(char, (line.index(char), y)))
+                self.grid.append(tmp)
                 line = inputFile.readline()
+                y += 1
 
             inputFile.close()
         except FileNotFoundError as e:
             print("Cannot find " + fileName)
 
     def getNaoLocation(self):
-        for iLine in range(len(self.grid)):
-            for iCol in range(len(self.grid[iLine])):
-                if self.grid[iLine][iCol] == "N":
-                    return (iLine, iCol)
-        return None
+        for line in self.grid:
+            for case in line:
+                if case.isNao():
+                    return case.getLocation()
 
-    def getData(self):
+    def showData(self):
         for line in self.grid:
             print(line)
 

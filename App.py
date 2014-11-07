@@ -1,6 +1,10 @@
-from Grid import Grid
+from model.Grid import Grid
+from view.View import View
 
 __author__ = 'fx'
 
-data = Grid("data.dat")
-print(data.getNaoLocation())
+# data = Grid("data.dat")
+# data.showData()
+
+frame = View()
+frame.mainloop()
