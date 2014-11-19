@@ -12,13 +12,13 @@ class Case:
         self.location = location
 
     def isEmpty(self):
-        return self.type == "x"
+        return self.type == "0"
 
     def isNao(self):
         return self.type == "N"
 
     def isObstacle(self):
-        return self.type == "0"
+        return self.type == "x"
 
     def isDiscovered(self):
         return self.discovered
