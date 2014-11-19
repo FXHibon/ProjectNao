@@ -6,5 +6,3 @@ __author__ = 'fx'
 # data = Grid("data.dat")
 # data.showData()
 
-frame = View()
-frame.mainloop()
