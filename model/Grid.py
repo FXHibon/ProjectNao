@@ -1,3 +1,4 @@
+from twisted.protocols.ftp import FileNotFoundError
 from model.Case import Case
 
 __author__ = 'fx'
