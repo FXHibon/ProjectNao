@@ -58,7 +58,7 @@ if __name__ == "__main__":
         n.train([1, 1], 1)
         n.train([1, 0], 1)
         n.train([0, 1], 1)
-        # n.train([0, 0], 0)
+        n.train([0, 0], 0)
 
     n.input = [0, 1]
     n.evaluate()
